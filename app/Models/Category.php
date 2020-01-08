@@ -26,7 +26,7 @@ class Category extends Model
             	// 将 path 值设为父类目的 path 追加父类目 ID 以及最后跟上一个 - 分隔符
             	$category->path = $category->parent->path.$category->parent_id.'-';
             } 
-    	})
+    	});
     }
 
     public function parent(){

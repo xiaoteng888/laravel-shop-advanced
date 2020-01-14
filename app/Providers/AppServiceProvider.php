@@ -5,6 +5,7 @@ namespace App\Providers;
 use Monolog\Logger;
 use Yansongda\Pay\Pay;
 use Illuminate\Support\ServiceProvider;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
         // 同时 Laravel 还支持通配符，例如 products.* 即代表当渲染 products 目录下的模板时都执行这个 ViewComposer
         \View::composer(['products.index','products.show'],
         \App\Http\ViewComposers\CategoryTreeComposer::class);
+        Carbon::setlocale('zh');
     }
 
     /**

@@ -36,7 +36,7 @@ class CrowdfundingProductsController extends CommonProductsController
               return CrowdfundingProduct::$statusMap[$value];
         });
       }
-
+ 
      protected function customForm(Form $form)
      {
          // 众筹相关字段

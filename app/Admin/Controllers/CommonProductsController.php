@@ -73,7 +73,7 @@ abstract class CommonProductsController extends Controller
         })->ajax('/admin/api/categories?is_directory=0');
         $form->image('image', '封面图片')->rules('required|image');
         $form->editor('description', '商品描述')->rules('required');
-        $form->radio('on_sale','上架')->options(['0'=>'是','1'=>'否'])->default('0');
+        $form->radio('on_sale','上架')->options(['1'=>'是','0'=>'否'])->default('0');
         
          // 定义一个抽象方法，各个类型的控制器将实现本方法来定义表单应该有哪些额外的字段
         $this->customForm($form);

@@ -25,11 +25,12 @@ class OrderService
             $address->update(['last_used_at' => Carbon::now()]);
             // 创建一个订单
             $order   = new Order([
-                'address'      => [ // 将地址信息放入订单中
+                    'address'      => [ // 将地址信息放入订单中
                     'address'       => $address->full_address,
                     'zip'           => $address->zip,
                     'contact_name'  => $address->contact_name,
                     'contact_phone' => $address->contact_phone,
+                    'type'          => Order::TYPE_NORMAL,
                 ],
                 'remark'       => $remark,
                 'total_amount' => 0,
@@ -96,6 +97,7 @@ class OrderService
                              'zip'  => $address->zip,
                              'contact_name' => $address->contact_name,
                              'contact_phone' => $address->contact_phone,
+                             'type'          => Order::TYPE_CROWDFUNDING,
                          ],
                          'remark' => '',
                          'total_amount' => $sku->price * $amount,

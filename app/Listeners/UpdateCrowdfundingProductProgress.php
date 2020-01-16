@@ -18,7 +18,7 @@ class UpdateCrowdfundingProductProgress implements ShouldQueue
      * @return void
      */
     public function handle(OrderPaid $event)
-    {
+    {   
          $order = $event->getOrder();
          // 如果订单类型不是众筹商品订单，无需处理
          if($order->type !== Order::TYPE_CROWDFUNDING){

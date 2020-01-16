@@ -128,8 +128,8 @@ class OrderService
         return $order;
      }
 
-     protected function refundOrder(Order $order)
-    {
+     public function refundOrder(Order $order)
+    {     
         // 判断该订单的支付方式
         switch ($order->payment_method) {
             case 'wechat':
@@ -157,7 +157,7 @@ class OrderService
                     'out_trade_no' => $order->no, // 之前的订单流水号
                     'refund_amount' => $order->total_amount, // 退款金额，单位元
                     'out_request_no' => $refundNo, // 退款订单号
-                ]);
+                ]);   
                 // 根据支付宝的文档，如果返回值里有 sub_code 字段说明退款失败
                 if ($ret->sub_code) {
                     // 将退款失败的保存存入 extra 字段

@@ -107,7 +107,7 @@ class OrdersController extends Controller
         // 判断订单状态是否正确
         if ($order->refund_status !== Order::REFUND_STATUS_APPLIED) {
             throw new InvalidRequestException('订单状态不正确');
-        }
+        }  
         // 是否同意退款
         if ($request->input('agree')) {
             // 清空拒绝退款理
@@ -132,7 +132,7 @@ class OrdersController extends Controller
         return $order;
     }
 
-    protected function _refundOrder(Order $order)
+    /*protected function _refundOrder(Order $order)
     {
         // 判断该订单的支付方式
         switch ($order->payment_method) {
@@ -186,5 +186,5 @@ class OrdersController extends Controller
                 throw new InternalException('未知订单支付方式：'.$order->payment_method);
                 break;
         }
-    }
+    }*/
 }

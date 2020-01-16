@@ -52,7 +52,7 @@ class FinishCrowdfunding extends Command
         });
     }
     // 将众筹状态改为众筹失败
-    protected function crowdfundingFailed(CrowdfundingProduct $crowdfunding,OrderService $orderService)
+    protected function crowdfundingFailed(CrowdfundingProduct $crowdfunding)
     {
          $crowdfunding->update([
                 'status' => CrowdfundingProduct::STATUS_FAIL,

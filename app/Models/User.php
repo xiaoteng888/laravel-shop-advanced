@@ -47,4 +47,9 @@ class User extends Authenticatable
             ->withTimestamps()
             ->orderBy('user_favorite_products.created_at', 'desc');
     }
+
+    public function authCan($model)
+    {
+         return $this->id == $model->user_id; 
+    }
 }

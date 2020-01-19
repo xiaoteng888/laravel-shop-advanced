@@ -24,7 +24,7 @@ class InstallmentsController extends Controller
         // 取出当前分期付款的所有的还款计划，并按还款顺序排序
         $items = $installment->items()->orderBy('sequence')->get();
         return view('installments.show',[
-                 'installment' => $installment,
+                 'installment' => $installment->load(['order']),
                  'items'       => $items,
                  // 下一个未完成还款的还款计划
                  'nextItem'    => $items->where('paid_at',null)->first(),
@@ -94,8 +94,8 @@ class InstallmentsController extends Controller
             // 更新对应的还款计划
             $item->update([
                   'paid_at' => Carbon::now(),
-                  'paid_method' => 'alipay',
-                  'pay_method' => $data->trade_no, //支付宝订单号
+                  'payment_method' => 'alipay',
+                  'payment_no' => $data->trade_no, //支付宝订单号
             ]);
             // 如果这是第一笔还款
             if($item->sequence===0){

@@ -41,4 +41,16 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function properties()
+    {
+        return $this->hasMany(ProductProperty::class);
+    }
+
+    public function getGroupedPropertiesAttribute()
+    {
+         return $this->properties->groupBy('name')->map(function($properties){
+               return $properties->pluck('value')->all();
+         });
+    }
 }

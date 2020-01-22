@@ -8,6 +8,7 @@ use Encore\Admin\Layout\Content;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use App\Models\Category;
+use App\Jobs\SyncOneProductToES;
 
 abstract class CommonProductsController extends Controller
 {
@@ -93,6 +94,11 @@ abstract class CommonProductsController extends Controller
             $form->saving(function (Form $form) {
                 $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price') ?: 0;
 		      });
+        // 定义事件回调，当模型保存后会触发这个回调 
+            $form->saved(function(Form $form){
+                  $product = $form->model();
+                  $this->dispatch(new SyncOneProductToES($product));  
+            });   
 		        return $form;
     }
     // 定义一个抽象方法，各个类型的控制器将实现本方法来定义表单应该有哪些额外的字段

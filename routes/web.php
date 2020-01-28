@@ -48,3 +48,4 @@ Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('pa
 Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
 Route::post('payment/wechat/refund_notify', 'PaymentController@wechatRefundNotify')->name('payment.wechat.refund_notify');
 Route::post('installments/alipay/notify','InstallmentsController@alipayNotify')->name('installments.alipay.notify');
+Route::get('cart/api','CartController@api');

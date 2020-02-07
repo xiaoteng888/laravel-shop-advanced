@@ -229,9 +229,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+   //订单关闭时间
     'order_ttl' => 1800,
-
+   //秒杀订单关闭时间
+    'seckill_order_ttl' => 600,
     'installment_fee_rate' => [
           3 => 1.5,
           6 => 2,

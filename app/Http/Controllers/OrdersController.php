@@ -16,6 +16,7 @@ use App\Models\CouponCode;
 use Carbon\Carbon;
 use App\Models\productSku;
 use App\Http\Requests\CrowdFundingOrderRequest;
+use App\Http\Requests\SeckillOrderRequest;
 
 class OrdersController extends Controller
 {
@@ -150,5 +151,13 @@ class OrdersController extends Controller
          $address = UserAddress::find($request->input('address_id'));
          $amount = $request->input('amount');
          return $orderService->crowdfunding($user,$sku,$address,$amount);
+    }
+    //创建一个方法用于接收秒杀商品下单
+    public function seckill(SeckillOrderRequest $request,OrderService $orderService)
+    {
+       $user = $request->user();
+       $address = UserAddress::find($request->input('address_id'));
+       $sku = ProductSku::find($request->input('sku_id'));
+       return $orderService->seckill($user,$address,$sku);
     }
 }

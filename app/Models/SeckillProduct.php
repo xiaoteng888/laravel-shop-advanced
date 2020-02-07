@@ -11,7 +11,7 @@ class SeckillProduct extends Model
 
      protected $dates = ['start_at','end_at'];
 
-     public function $timestamps = false;
+     public $timestamps = false;
   
      public function product()
      {

@@ -7,17 +7,6 @@ Laravel Shop 功能如下：
 
 ![_big](https://user-images.githubusercontent.com/324764/41384789-6fa309c6-6faa-11e8-93e0-eeb8d36fe7f7.jpg)
 
-## 关于教程
-
-<p align="center">
-<a href="https://laravel-china.org/topics/13206/laravel-shop-course">
-<img src="https://user-images.githubusercontent.com/324764/41385516-bb14c184-6fae-11e8-9be1-250950d8732d.jpg" alt="《L05 Laravel - 电商实战》" width='420'>
-</a>
-</p>
-
-
-沿用 [Laravel ](https://laravel-china.org/courses) 的教学方法，利用线索式的行文方式，带你熟悉项目需求分析、开发计划、项目创建、支付接口调试等电商项目的开发流程。
-
 
 ## 项目知识点
 
